@@ -1,12 +1,21 @@
 const gameboard = (function () {
   const gameboardArr = [];
   const printGameboardArr = () => console.log(gameboardArr);
-  const addGameboardArr = (x) => gameboardArr.push(x);
+  const addItem = (x) => {
+    const tempHolder = x.toUpperCase();
+    if(tempHolder === "X" || tempHolder === "O"){
+      gameboardArr.push(tempHolder);
+    }
+    else{
+      return alert("Input only X or O");
+    }
 
-  return {gameboardArr, printGameboardArr, addGameboardArr};
+  }
+
+  return {gameboardArr, printGameboardArr, addItem};
 })();
 
 gameboard.printGameboardArr();
-gameboard.addGameboardArr("x")
+gameboard.addItem("o")
 gameboard.printGameboardArr();
 
