@@ -7,7 +7,7 @@ const gameboard = (function () {
 
     const tempHolder = icon.toUpperCase();
 
-    if(num <= 8){
+    if(num <= 8 && gameboardArr[num] === ""){
       if(tempHolder === "X" || tempHolder === "O"){
         gameboardArr.splice(num,1,tempHolder);
       }
@@ -22,8 +22,10 @@ const gameboard = (function () {
 
 gameboard.printGameboardArr();
 
-gameboard.addItem(0,"x")
-gameboard.addItem(8,"o")
+gameboard.addItem(0,"x");
+gameboard.addItem(8,"o");
+
+
 
 gameboard.printGameboardArr();
 
