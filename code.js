@@ -1,36 +1,31 @@
 const gameboard = (function () {
-  const gameboardArr = [];
+  let gameboardArr = ["","","","","","","","",""];
   const printGameboardArr = () => console.log(gameboardArr);
-  const addItem = (x) => {
-    const tempHolder = x.toUpperCase();
-    if(gameboardArr.length >= 9){
-       alert("Only 9 items permitted")
-    }
-    else{
+
+  const addItem = (num,icon) => {
+
+
+    const tempHolder = icon.toUpperCase();
+
+    if(num <= 8){
       if(tempHolder === "X" || tempHolder === "O"){
-        gameboardArr.push(tempHolder);
+        gameboardArr.splice(num,1,tempHolder);
       }
       else{
          alert("Input only X or O");
       }
-    }
-   
+    } 
   }
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
 
 gameboard.printGameboardArr();
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
-gameboard.addItem("o");
 
+gameboard.addItem(0,"x")
+gameboard.addItem(8,"o")
 
 gameboard.printGameboardArr();
+
+
 
