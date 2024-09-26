@@ -3,22 +3,23 @@ const gameboard = (function () {
   const printGameboardArr = () => console.log(gameboardArr);
 
   const checkWinCondition = (array) => {
-      //Horizontal Win Conditions
-      if(array[0] && array[1] && array[2] !== ""){
-          if(array[0] === "X" && array[1] === "X" && array[2] === "X"){
-            alert("X Player Victory");
-          }
-          else if(array[0] === "O" && array[1] === "O" && array[2] === "O"){
-            alert("O Player Victory");
-          }
+      const winConditionFunc = function(array,firstCell,secondCell,thirdCell){
+        if(array[firstCell] === "X" && array[secondCell] === "X" && array[thirdCell] === "X"){
+          alert("X Player Victory");
         }
-         else if(array[3] && array[4] && array[5] !== ""){
-            if(array[3] === "X" && array[4] === "X" && array[5] === "X"){
-              alert("X Player Victory");
-            }
-            else if(array[3] === "O" && array[4] === "O" && array[5] === "O"){
-              alert("O Player Victory");
-            }
+        else if(array[firstCell] === "O" && array[secondCell] === "O" && array[thirdCell] === "O"){
+          alert("O Player Victory");
+        }
+      }
+      //Horizontal Win Conditions
+      if(array[0,1,2] !== ""){
+        winConditionFunc(array,0,1,2);
+      }
+      else if(array[3,4,5] !== ""){
+        winConditionFunc(array,3,4,5);
+      }
+      else if(array[6,7,8] !== ""){
+        winConditionFunc(array,6,7,8);
       }
     
 
@@ -47,12 +48,16 @@ const gameboard = (function () {
 
 gameboard.printGameboardArr();
 
-// gameboard.addItem(0,"o");
-// gameboard.addItem(1,"o");
-// gameboard.addItem(2,"o");
-gameboard.addItem(3,"x");
-gameboard.addItem(4,"x");
-gameboard.addItem(5,"x");
+//If a row is full victory condition will not active find out why
+gameboard.addItem(0,"o");
+gameboard.addItem(1,"o");
+// gameboard.addItem(2,"x");
+// gameboard.addItem(3,"x");
+// gameboard.addItem(4,"x");
+// gameboard.addItem(5,"x");
+gameboard.addItem(6,"o");
+gameboard.addItem(7,"o");
+gameboard.addItem(8,"o");
 
 
 
