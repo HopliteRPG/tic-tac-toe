@@ -23,6 +23,10 @@ const gameboard = (function () {
     isHorizontalWin(gameboardArr,0);
     isHorizontalWin(gameboardArr,3);
     isHorizontalWin(gameboardArr,6);
+
+    isVerticalWin(gameboardArr,0);
+    isVerticalWin(gameboardArr,1);
+    isVerticalWin(gameboardArr,2);
   }
 
   const addItem = (num,icon) => {
@@ -50,16 +54,16 @@ gameboard.printGameboardArr();
 
 //If a row is full victory condition will not active find out why
 gameboard.addItem(0,"o");
-gameboard.addItem(1,"o");
+gameboard.addItem(1,"x");
 gameboard.addItem(2,"x");
 
-gameboard.addItem(3,"x");
-// gameboard.addItem(4,"x");
-// gameboard.addItem(5,"o");
+gameboard.addItem(3,"o");
+gameboard.addItem(4,"x");
+gameboard.addItem(5,"x");
 
-gameboard.addItem(6,"o");
+gameboard.addItem(6,"x");
 gameboard.addItem(7,"o");
-gameboard.addItem(8,"o");
+gameboard.addItem(8,"x");
 
 
 
