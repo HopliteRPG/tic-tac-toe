@@ -10,3 +10,12 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
+.gameboardArrDom{
+  display: grid;
+  grid-template: 100px 100px 100px / 100px 100px 100px;
+}
+
+.gameboardCell{
+  border: 1px solid;
+}

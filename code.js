@@ -2,6 +2,12 @@ const gameboard = (function () {
   let gameboardArr = ["","","","","","","","",""];
   const printGameboardArr = () => console.log(gameboardArr);
 
+  //DOM Stuff
+  const mainDom = document.querySelector(".main");
+  const gameboardArrDom = document.createElement("div");
+  gameboardArrDom.classList.add("gameboardArrDom");
+  mainDom.appendChild(gameboardArrDom);
+
   const checkWinCondition = function(){
     const isHorizontalWin = function(array,firstCell){
       if(array[firstCell] === "X" && array[firstCell+1] === "X" && array[firstCell+2] === "X"){
@@ -60,11 +66,37 @@ const gameboard = (function () {
       else{
          alert("Input only X or O");
          checkWinCondition();
-
-
       }
     } 
   }
+
+  function createCell (id,icon,array,dom){
+    const gameboardCell = document.createElement("div");
+    gameboardCell.classList.add("gameboardCell");
+    const cloneGameboardCell = gameboardCell.cloneNode(true);
+
+    const addCellToDom = (id) => {
+      dom.appendChild(cloneGameboardCell)
+      cloneGameboardCell.setAttribute("id",id)
+    }
+
+    return{id,icon,array,dom,addCellToDom}
+  }
+
+
+
+
+  function displayDOM(){
+
+  const cellZero = createCell(0,"",gameboardArr,gameboardArrDom)
+  cellZero.addCellToDom(cellZero.id);
+
+
+  }
+
+  displayDOM()
+  displayDOM()
+  displayDOM()
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
