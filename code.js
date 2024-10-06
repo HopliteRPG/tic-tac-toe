@@ -86,17 +86,14 @@ const gameboard = (function () {
 
 
 
-  function displayDOM(){
-
-  const cellZero = createCell(0,"",gameboardArr,gameboardArrDom)
-  cellZero.addCellToDom(cellZero.id);
-
-
+  function createDOM(){
+    for(let i = 0; i <= 8; i++){
+      const tempCell = createCell(i,"",gameboardArr,gameboardArrDom)
+      tempCell.addCellToDom(tempCell.id);
+    }
   }
 
-  displayDOM()
-  displayDOM()
-  displayDOM()
+  createDOM();
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
