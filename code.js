@@ -1,5 +1,5 @@
 const gameboard = (function () {
-  let gameboardArr = ["","","","","","","","",""];
+  let gameboardArr = [];
   const printGameboardArr = () => console.log(gameboardArr);
 
   //DOM Stuff
@@ -79,6 +79,7 @@ const gameboard = (function () {
       dom.appendChild(cloneGameboardCell)
       cloneGameboardCell.setAttribute("id",id)
     }
+    
 
     return{id,icon,array,dom,addCellToDom}
   }
@@ -88,8 +89,16 @@ const gameboard = (function () {
 
   function createDOM(){
     for(let i = 0; i <= 8; i++){
+
+
       const tempCell = createCell(i,"",gameboardArr,gameboardArrDom)
       tempCell.addCellToDom(tempCell.id);
+
+      function extractIconAndId({id:id,icon:icon}){
+        return {id,icon}
+      }
+
+      gameboardArr.push(extractIconAndId(tempCell))
     }
   }
 
@@ -103,13 +112,13 @@ gameboard.printGameboardArr();
 //If a row is full victory condition will not active find out why
 // gameboard.addItem(0,"O");
 // gameboard.addItem(1,"");
-gameboard.addItem(2,"X");
+// gameboard.addItem(2,"X");
 
 // gameboard.addItem(3,"");
-gameboard.addItem(4,"X");
+// gameboard.addItem(4,"X");
 // gameboard.addItem(5,"");
 
-gameboard.addItem(6,"X");
+// gameboard.addItem(6,"X");
 // gameboard.addItem(7,"");
 // gameboard.addItem(8,"O");
 
