@@ -10,34 +10,34 @@ const gameboard = (function () {
 
   const checkWinCondition = function(){
     const isHorizontalWin = function(array,firstCell){
-      if(array[firstCell] === "X" && array[firstCell+1] === "X" && array[firstCell+2] === "X"){
+      if(array[firstCell].icon === "X" && array[firstCell+1].icon === "X" && array[firstCell+2].icon === "X"){
         alert("X Player Victory");
       }
-      else if(array[firstCell] === "O" && array[firstCell+1] === "O" && array[firstCell+2] === "O"){
+      else if(array[firstCell].icon === "O" && array[firstCell+1].icon === "O" && array[firstCell+2].icon === "O"){
         alert("O Player Victory");
       }
     }
   
     const isVerticalWin = function(array,firstCell){
-      if(array[firstCell] === "X" && array[firstCell+3] === "X" && array[firstCell+6] === "X"){
+      if(array[firstCell].icon === "X" && array[firstCell+3].icon === "X" && array[firstCell+6].icon === "X"){
         alert("X Player Victory");
       }
-      else if(array[firstCell] === "O" && array[firstCell+3] === "O" && array[firstCell+6] === "O"){
+      else if(array[firstCell].icon === "O" && array[firstCell+3].icon === "O" && array[firstCell+6].icon === "O"){
         alert("O Player Victory");
       }
     }
 
     const isDiagonalWin = function(array,firstCell){
-      if(array[firstCell] === "X" && array[firstCell+4] === "X" && array[firstCell+8] === "X"){
+      if(array[firstCell].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+8].icon === "X"){
         alert("X Player Victory");
       }
-      else if(array[firstCell] === "O" && array[firstCell+4] === "O" && array[firstCell+8] === "O"){
+      else if(array[firstCell].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+8].icon === "O"){
         alert("O Player Victory");
       }
-      else if(array[firstCell+2] === "X" && array[firstCell+4] === "X" && array[firstCell+6] === "X"){
+      else if(array[firstCell+2].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+6].icon === "X"){
         alert("X Player Victory");
       }
-      else if(array[firstCell+2] === "O" && array[firstCell+4] === "O" && array[firstCell+6] === "O"){
+      else if(array[firstCell+2].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+6].icon === "O"){
         alert("O Player Victory");
       }
     }
@@ -110,16 +110,16 @@ const gameboard = (function () {
 gameboard.printGameboardArr();
 
 //If a row is full victory condition will not active find out why
-gameboard.addItem(0,"O");
-// gameboard.addItem(1,"");
+// gameboard.addItem(0,"X");
+// gameboard.addItem(1,"X");
 // gameboard.addItem(2,"X");
 
-// gameboard.addItem(3,"");
+// gameboard.addItem(3,"X");
 // gameboard.addItem(4,"X");
-// gameboard.addItem(5,"");
+// gameboard.addItem(5,"X");
 
-// gameboard.addItem(6,"X");
-// gameboard.addItem(7,"");
+// gameboard.addItem(6,"O");
+// gameboard.addItem(7,"O");
 // gameboard.addItem(8,"O");
 
 
