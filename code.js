@@ -8,6 +8,7 @@ const gameboard = (function () {
   gameboardArrDom.classList.add("gameboardArrDom");
   mainDom.appendChild(gameboardArrDom);
 
+  //Checking Win Conditions
   const checkWinCondition = function(){
     const isHorizontalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+1].icon === "X" && array[firstCell+2].icon === "X"){
@@ -54,6 +55,7 @@ const gameboard = (function () {
     isDiagonalWin(gameboardArr,0)
   }
 
+  //Adding Icons
   const addItem = (num,icon) => {
     const tempHolder = icon.toUpperCase();
 
@@ -70,6 +72,7 @@ const gameboard = (function () {
     } 
   }
 
+  //Creating Cell object
   function createCell (id,icon,array,dom){
     const gameboardCell = document.createElement("div");
     gameboardCell.classList.add("gameboardCell");
@@ -86,7 +89,7 @@ const gameboard = (function () {
 
 
 
-
+  //Creating DOM
   function createDOM(){
     for(let i = 0; i <= 8; i++){
 
@@ -109,7 +112,6 @@ const gameboard = (function () {
 
 gameboard.printGameboardArr();
 
-//If a row is full victory condition will not active find out why
 // gameboard.addItem(0,"X");
 // gameboard.addItem(1,"X");
 // gameboard.addItem(2,"X");
