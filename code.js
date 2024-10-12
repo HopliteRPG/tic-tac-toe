@@ -105,7 +105,21 @@ const gameboard = (function () {
     }
   }
 
+  //Add event listener
+  function gettingTheIdFromDom(dom){
+    let gameboardCell = dom.querySelectorAll(".gameboardCell");
+    
+    gameboardCell.forEach(element => {
+      element.addEventListener("click", event =>{
+        console.log(event.target.id)
+
+      })
+      
+    });
+  }
+
   createDOM();
+  gettingTheIdFromDom(gameboardArrDom);
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
