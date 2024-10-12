@@ -106,7 +106,7 @@ const gameboard = (function () {
   }
 
   //Add event listener
-  function gettingTheIdFromDom(dom){
+  function clickAndGetId(dom){
     let gameboardCell = dom.querySelectorAll(".gameboardCell");
     
     gameboardCell.forEach(element => {
@@ -119,7 +119,7 @@ const gameboard = (function () {
   }
 
   createDOM();
-  gettingTheIdFromDom(gameboardArrDom);
+  clickAndGetId(gameboardArrDom);
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
