@@ -57,9 +57,9 @@ const gameboard = (function () {
   const addItem = (num,icon) => {
     const tempHolder = icon.toUpperCase();
 
-    if(num <= 8 && gameboardArr[num] === ""){
+    if(num <= 8 && gameboardArr[num].icon === ""){
       if(tempHolder === "X" || tempHolder === "O"){
-        gameboardArr.splice(num,1,tempHolder);
+        gameboardArr[num].icon = icon
         checkWinCondition();
 
       }
@@ -110,7 +110,7 @@ const gameboard = (function () {
 gameboard.printGameboardArr();
 
 //If a row is full victory condition will not active find out why
-// gameboard.addItem(0,"O");
+gameboard.addItem(0,"O");
 // gameboard.addItem(1,"");
 // gameboard.addItem(2,"X");
 
