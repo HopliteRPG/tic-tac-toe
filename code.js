@@ -62,6 +62,7 @@ const gameboard = (function () {
     if(num <= 8 && gameboardArr[num].icon === ""){
       if(tempHolder === "X" || tempHolder === "O"){
         gameboardArr[num].icon = icon
+        updateDomDisplay(gameboardArrDom,gameboardArr);
         checkWinCondition();
 
       }
@@ -118,6 +119,26 @@ const gameboard = (function () {
     });
   }
 
+  //Update DOM Display
+  function updateDomDisplay(dom,array){
+    let gameboardCell = dom.querySelectorAll(".gameboardCell");
+    for(let i = 0; i<array.length; i++){
+      if(gameboardCell[i].id == array[i].id){
+        // console.log("true")
+        // console.log(array[i].icon);
+        console.log(gameboardCell[i])
+        let iconHTML = document.createElement("p");
+        let cloneIconHTML = iconHTML.cloneNode(true);
+        gameboardCell[i].appendChild(cloneIconHTML);
+        cloneIconHTML = array[i].icon;
+
+
+      }
+    }
+  }  
+
+
+
   createDOM();
   clickAndGetId(gameboardArrDom);
 
@@ -126,8 +147,8 @@ const gameboard = (function () {
 
 gameboard.printGameboardArr();
 
-// gameboard.addItem(0,"X");
-// gameboard.addItem(1,"X");
+gameboard.addItem(0,"X");
+gameboard.addItem(1,"X");
 // gameboard.addItem(2,"X");
 
 // gameboard.addItem(3,"X");
