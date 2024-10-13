@@ -82,6 +82,9 @@ const gameboard = (function () {
     const addCellToDom = (id) => {
       dom.appendChild(cloneGameboardCell)
       cloneGameboardCell.setAttribute("id",id)
+      let iconHTML = document.createElement("p");
+      let cloneIconHTML = iconHTML.cloneNode(true);
+      cloneGameboardCell.appendChild(cloneIconHTML);
     }
     
 
@@ -92,11 +95,14 @@ const gameboard = (function () {
 
   //Creating DOM
   function createDOM(){
+
     for(let i = 0; i <= 8; i++){
 
 
       const tempCell = createCell(i,"",gameboardArr,gameboardArrDom)
       tempCell.addCellToDom(tempCell.id);
+
+
 
       function extractIconAndId({id:id,icon:icon}){
         return {id,icon}
@@ -124,11 +130,8 @@ const gameboard = (function () {
     let gameboardCell = dom.querySelectorAll(".gameboardCell");
     for(let i = 0; i<array.length; i++){
       if(gameboardCell[i].id == array[i].id){
-        // console.log("true")
-        // console.log(array[i].icon);
         console.log(gameboardCell[i])
-        let iconHTML = document.createElement("p");
-        let cloneIconHTML = iconHTML.cloneNode(true);
+
         gameboardCell[i].appendChild(cloneIconHTML);
         cloneIconHTML = array[i].icon;
 
