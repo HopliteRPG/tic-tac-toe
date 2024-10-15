@@ -126,11 +126,12 @@ const gameboard = (function () {
       if(gameboardCell[i].id == array[i].id){
         // console.log("true")
         // console.log(array[i].icon);
-        console.log(gameboardCell[i])
+        // console.log(gameboardCell[i])
         let iconHTML = document.createElement("p");
         let cloneIconHTML = iconHTML.cloneNode(true);
+        cloneIconHTML.innerText = array[i].icon;
+
         gameboardCell[i].appendChild(cloneIconHTML);
-        cloneIconHTML = array[i].icon;
 
 
       }
