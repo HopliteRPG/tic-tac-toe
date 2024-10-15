@@ -127,16 +127,12 @@ const gameboard = (function () {
   //Update DOM Display
   function updateDomDisplay(dom,array){
     let gameboardCell = dom.querySelectorAll(".gameboardCell");
+    let iconHTML = dom.querySelectorAll(".iconHTML")
     for(let i = 0; i<array.length; i++){
       if(gameboardCell[i].id == array[i].id){
-        // console.log("true")
-        // console.log(array[i].icon);
-        // console.log(gameboardCell[i])
-        // let iconHTML = document.createElement("p");
-        // let cloneIconHTML = iconHTML.cloneNode(true);
-        // cloneIconHTML.innerText = array[i].icon;
 
-        // gameboardCell[i].appendChild(cloneIconHTML);
+        iconHTML[i].innerText = array[i].icon;
+
 
 
       }
@@ -159,11 +155,11 @@ gameboard.addItem(1,"X");
 
 // gameboard.addItem(3,"X");
 // gameboard.addItem(4,"X");
-// gameboard.addItem(5,"X");
+// gameboard.addItem(5,"O");
 
 // gameboard.addItem(6,"O");
 // gameboard.addItem(7,"O");
-// gameboard.addItem(8,"O");
+// gameboard.addItem(8,"X");
 
 
 
