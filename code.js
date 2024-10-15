@@ -78,10 +78,15 @@ const gameboard = (function () {
     const gameboardCell = document.createElement("div");
     gameboardCell.classList.add("gameboardCell");
     const cloneGameboardCell = gameboardCell.cloneNode(true);
+    const iconHTML = document.createElement("p");
+    const cloneIconHTML = iconHTML.cloneNode(true);
 
     const addCellToDom = (id) => {
-      dom.appendChild(cloneGameboardCell)
-      cloneGameboardCell.setAttribute("id",id)
+      dom.appendChild(cloneGameboardCell);
+      cloneGameboardCell.setAttribute("id",id);
+      cloneIconHTML.setAttribute("class","iconHTML")
+      cloneGameboardCell.appendChild(cloneIconHTML);
+      
     }
     
 
@@ -127,11 +132,11 @@ const gameboard = (function () {
         // console.log("true")
         // console.log(array[i].icon);
         // console.log(gameboardCell[i])
-        let iconHTML = document.createElement("p");
-        let cloneIconHTML = iconHTML.cloneNode(true);
-        cloneIconHTML.innerText = array[i].icon;
+        // let iconHTML = document.createElement("p");
+        // let cloneIconHTML = iconHTML.cloneNode(true);
+        // cloneIconHTML.innerText = array[i].icon;
 
-        gameboardCell[i].appendChild(cloneIconHTML);
+        // gameboardCell[i].appendChild(cloneIconHTML);
 
 
       }
