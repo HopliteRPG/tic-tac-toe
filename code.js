@@ -52,6 +52,13 @@ const gameboard = (function () {
       }
     }
 
+    const isTie = function(array){
+      if(array[0,1,2,3,4,5,6,7,8].icon != "" && winStatus === false){
+        alert("Tie");
+        winStatus = true;
+      }
+    }
+
 
     isHorizontalWin(gameboardArr,0);
     isHorizontalWin(gameboardArr,3);
@@ -62,6 +69,8 @@ const gameboard = (function () {
     isVerticalWin(gameboardArr,2);
 
     isDiagonalWin(gameboardArr,0)
+
+    isTie(gameboardArr);
   }
 
   //Adding Icons
@@ -158,15 +167,15 @@ const gameboard = (function () {
 
 gameboard.printGameboardArr();
 
-gameboard.addItem(0,"X");
+gameboard.addItem(0,"O");
 gameboard.addItem(1,"X");
 gameboard.addItem(2,"X");
 
 gameboard.addItem(3,"X");
-gameboard.addItem(4,"X");
+gameboard.addItem(4,"O");
 gameboard.addItem(5,"O");
 
-gameboard.addItem(6,"O");
+gameboard.addItem(6,"X");
 gameboard.addItem(7,"O");
 gameboard.addItem(8,"X");
 
