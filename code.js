@@ -9,37 +9,46 @@ const gameboard = (function () {
   mainDom.appendChild(gameboardArrDom);
 
   //Checking Win Conditions
+  let winStatus = false;
   const checkWinCondition = function(){
     const isHorizontalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+1].icon === "X" && array[firstCell+2].icon === "X"){
         alert("X Player Victory");
+        winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+1].icon === "O" && array[firstCell+2].icon === "O"){
         alert("O Player Victory");
+        winStatus = true;
       }
     }
   
     const isVerticalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+3].icon === "X" && array[firstCell+6].icon === "X"){
         alert("X Player Victory");
+        winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+3].icon === "O" && array[firstCell+6].icon === "O"){
         alert("O Player Victory");
+        winStatus = true;
       }
     }
 
     const isDiagonalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+8].icon === "X"){
         alert("X Player Victory");
+        winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+8].icon === "O"){
         alert("O Player Victory");
+        winStatus = true;
       }
       else if(array[firstCell+2].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+6].icon === "X"){
         alert("X Player Victory");
+        winStatus = true;
       }
       else if(array[firstCell+2].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+6].icon === "O"){
         alert("O Player Victory");
+        winStatus = true;
       }
     }
 
@@ -59,7 +68,7 @@ const gameboard = (function () {
   const addItem = (num,icon) => {
     const tempHolder = icon.toUpperCase();
 
-    if(num <= 8 && gameboardArr[num].icon === ""){
+    if(num <= 8 && gameboardArr[num].icon === "" && winStatus === false){
       if(tempHolder === "X" || tempHolder === "O"){
         gameboardArr[num].icon = icon
         updateDomDisplay(gameboardArrDom,gameboardArr);
@@ -151,15 +160,15 @@ gameboard.printGameboardArr();
 
 gameboard.addItem(0,"X");
 gameboard.addItem(1,"X");
-// gameboard.addItem(2,"X");
+gameboard.addItem(2,"X");
 
-// gameboard.addItem(3,"X");
-// gameboard.addItem(4,"X");
-// gameboard.addItem(5,"O");
+gameboard.addItem(3,"X");
+gameboard.addItem(4,"X");
+gameboard.addItem(5,"O");
 
-// gameboard.addItem(6,"O");
-// gameboard.addItem(7,"O");
-// gameboard.addItem(8,"X");
+gameboard.addItem(6,"O");
+gameboard.addItem(7,"O");
+gameboard.addItem(8,"X");
 
 
 
