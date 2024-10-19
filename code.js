@@ -53,7 +53,13 @@ const gameboard = (function () {
     }
 
     const isTie = function(array){
-      if(array[0,1,2,3,4,5,6,7,8].icon != "" && winStatus === false){
+      function cellIsFilled(cell){
+        if(cell.icon !== ""){
+          return true;
+        }
+      }
+
+      if(array.every(cellIsFilled) != "" && winStatus === false){
         alert("Tie");
         winStatus = true;
       }
