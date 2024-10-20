@@ -88,6 +88,7 @@ const gameboard = (function () {
         gameboardArr[num].icon = icon
         updateDomDisplay(gameboardArrDom,gameboardArr);
         checkWinCondition();
+        console.log(gameboardArr)
 
       }
       else{
@@ -136,14 +137,26 @@ const gameboard = (function () {
   }
 
   //Add event listener
-  function clickAndGetId(dom){
+  let playerOneTurn = true;
+  function touchAndPlay(dom,array){
     let gameboardCell = dom.querySelectorAll(".gameboardCell");
     
     gameboardCell.forEach(element => {
       element.addEventListener("click", event =>{
-        console.log(event.target.id)
+        let pressedId = event.target.id;
+        let playerCurrentIcon;
+        if(playerOneTurn === true && array[pressedId].icon === ""){
+            playerCurrentIcon = "X";
+            addItem(pressedId,playerCurrentIcon);
+            playerOneTurn = false;
+        }
+        else if(playerOneTurn === false && array[pressedId].icon === ""){
+          playerCurrentIcon = "O";
+          addItem(event.target.id,playerCurrentIcon);
+          playerOneTurn = true;
+        }
 
-      })
+      });
       
     });
   }
@@ -166,28 +179,28 @@ const gameboard = (function () {
 
 
   createDOM();
-  clickAndGetId(gameboardArrDom);
+  touchAndPlay(gameboardArrDom,gameboardArr);
 
   return {gameboardArr, printGameboardArr, addItem};
 })();
 
-gameboard.printGameboardArr();
+// gameboard.printGameboardArr();
 
-gameboard.addItem(0,"O");
-gameboard.addItem(1,"X");
-gameboard.addItem(2,"X");
+// gameboard.addItem(0,"O");
+// gameboard.addItem(1,"X");
+// gameboard.addItem(2,"X");
 
-gameboard.addItem(3,"X");
-gameboard.addItem(4,"O");
-gameboard.addItem(5,"O");
+// gameboard.addItem(3,"X");
+// gameboard.addItem(4,"O");
+// gameboard.addItem(5,"O");
 
-gameboard.addItem(6,"X");
-gameboard.addItem(7,"O");
-gameboard.addItem(8,"X");
+// gameboard.addItem(6,"X");
+// gameboard.addItem(7,"O");
+// gameboard.addItem(8,"X");
 
 
 
-gameboard.printGameboardArr();
+// gameboard.printGameboardArr();
 
 
 
