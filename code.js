@@ -109,7 +109,8 @@ const gameboard = (function () {
     const addCellToDom = (id) => {
       dom.appendChild(cloneGameboardCell);
       cloneGameboardCell.setAttribute("id",id);
-      cloneIconHTML.setAttribute("class","iconHTML")
+      cloneIconHTML.setAttribute("class","iconHTML");
+      cloneIconHTML.setAttribute("id",id)
       cloneGameboardCell.appendChild(cloneIconHTML);
       
     }
@@ -123,8 +124,6 @@ const gameboard = (function () {
   //Creating DOM
   function createDOM(){
     for(let i = 0; i <= 8; i++){
-
-
       const tempCell = createCell(i,"",gameboardArr,gameboardArrDom)
       tempCell.addCellToDom(tempCell.id);
 
@@ -139,9 +138,9 @@ const gameboard = (function () {
   //Add event listener
   let playerOneTurn = true;
   function touchAndPlay(dom,array){
-    let gameboardCell = dom.querySelectorAll(".gameboardCell");
+    let iconHTML = dom.querySelectorAll(".iconHTML");
     
-    gameboardCell.forEach(element => {
+    iconHTML.forEach(element => {
       element.addEventListener("click", event =>{
         let pressedId = event.target.id;
         let playerCurrentIcon;
@@ -167,11 +166,7 @@ const gameboard = (function () {
     let iconHTML = dom.querySelectorAll(".iconHTML")
     for(let i = 0; i<array.length; i++){
       if(gameboardCell[i].id == array[i].id){
-
         iconHTML[i].innerText = array[i].icon;
-
-
-
       }
     }
   }  
