@@ -171,15 +171,27 @@ const gameboard = (function () {
     }
   }  
 
+  //Reset
+  let resetBtn = document.querySelector(".resetBtn");
+  resetBtn.addEventListener("click",reset);
+  function reset(){
+    gameboardArr = [];
+    gameboardArrDom.innerHTML = "";
+    createDOM();
+    updateDomDisplay(gameboardArrDom,gameboardArr);
+    touchAndPlay(gameboardArrDom,gameboardArr);
+    winStatus = false;
+    playerOneTurn = true;
+  }
+
 
 
   createDOM();
   touchAndPlay(gameboardArrDom,gameboardArr);
-
   return {gameboardArr, printGameboardArr, addItem};
 })();
 
-// gameboard.printGameboardArr();
+gameboard.printGameboardArr();
 
 // gameboard.addItem(0,"O");
 // gameboard.addItem(1,"X");
