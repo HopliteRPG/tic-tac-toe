@@ -2,11 +2,13 @@ const gameboard = (function () {
   let gameboardArr = [];
   const printGameboardArr = () => console.log(gameboardArr);
 
-  //DOM Stuff
+  //Gameboard DOM Creation
   const mainDom = document.querySelector(".main");
   const gameboardArrDom = document.createElement("div");
   gameboardArrDom.classList.add("gameboardArrDom");
   mainDom.appendChild(gameboardArrDom);
+
+
 
   //Checking Win Conditions
   let winStatus = false;
@@ -171,8 +173,11 @@ const gameboard = (function () {
     }
   }  
 
-  //Reset
-  let resetBtn = document.querySelector(".resetBtn");
+  //Reset Button
+  const resetBtn = document.createElement("button");
+  resetBtn.classList.add("resetBtn");
+  mainDom.appendChild(resetBtn);
+  resetBtn.innerText = "Reset"
   resetBtn.addEventListener("click",reset);
   function reset(){
     gameboardArr = [];
