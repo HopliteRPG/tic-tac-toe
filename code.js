@@ -38,10 +38,11 @@ const gameboard = (function () {
   const mainDom = document.querySelector(".main");
 
   const playerNamesDiv = document.createElement("div");
+  playerNamesDiv.classList.add("playerNamesDiv")
   mainDom.appendChild(playerNamesDiv);
 
-  mainDom.appendChild(xPlayerNameP);
-  mainDom.appendChild(oPlayerNameP);
+  playerNamesDiv.appendChild(xPlayerNameP);
+  playerNamesDiv.appendChild(oPlayerNameP);
   
   const gameboardArrDom = document.createElement("div");
   gameboardArrDom.classList.add("gameboardArrDom");
