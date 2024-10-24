@@ -215,7 +215,6 @@ const gameboard = (function () {
     playerOneTurn = true;
     xPlayerName = "";
     oPlayerName = "";
-    form.reset();
     showModal();
   }
 
