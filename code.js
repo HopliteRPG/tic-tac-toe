@@ -5,9 +5,11 @@ const gameboard = (function () {
 
 
 
-  //Player Creation
+  //Form Logic
   const dialog = document.querySelector("dialog");
   const form = document.querySelector("form");
+  const xPlayerNameP = document.createElement("p");
+  const oPlayerNameP = document.createElement("p");
   let xPlayerName = "";
   let oPlayerName = "";
 
@@ -16,7 +18,10 @@ const gameboard = (function () {
     const formData = new FormData(form);
     xPlayerName = formData.get("x_player_name");
     oPlayerName = formData.get("o_player_name");
-    alert(`X Players name is ${xPlayerName} and O Players name is ${formData.get("o_player_name")}`);
+
+    xPlayerNameP.innerText = xPlayerName;
+    oPlayerNameP.innerText = oPlayerName;
+
     dialog.close();
   });
 
@@ -28,8 +33,16 @@ const gameboard = (function () {
 
 
 
+
   //Gameboard DOM Creation
   const mainDom = document.querySelector(".main");
+
+  const playerNamesDiv = document.createElement("div");
+  mainDom.appendChild(playerNamesDiv);
+
+  mainDom.appendChild(xPlayerNameP);
+  mainDom.appendChild(oPlayerNameP);
+  
   const gameboardArrDom = document.createElement("div");
   gameboardArrDom.classList.add("gameboardArrDom");
   mainDom.appendChild(gameboardArrDom);
