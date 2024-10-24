@@ -8,11 +8,15 @@ const gameboard = (function () {
   //Player Creation
   const dialog = document.querySelector("dialog");
   const form = document.querySelector("form");
+  let xPlayerName = "";
+  let oPlayerName = "";
 
   form.addEventListener("submit",(event) =>{
     event.preventDefault();
     const formData = new FormData(form);
-    alert(`X Players name is ${formData.get("x_player_name")} and O Players name is ${formData.get("o_player_name")}`);
+    xPlayerName = formData.get("x_player_name");
+    oPlayerName = formData.get("o_player_name");
+    alert(`X Players name is ${xPlayerName} and O Players name is ${formData.get("o_player_name")}`);
     dialog.close();
   });
 
