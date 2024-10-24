@@ -12,6 +12,15 @@ html, body {
   flex-direction: column;
 }
 
+.playerNamesDiv{
+  display: flex;
+}
+
+.playerNamesDiv>p{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .gameboardArrDom{
   display: grid;
   grid-template: 100px 100px 100px / 100px 100px 100px;

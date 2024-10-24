@@ -19,8 +19,8 @@ const gameboard = (function () {
     xPlayerName = formData.get("x_player_name");
     oPlayerName = formData.get("o_player_name");
 
-    xPlayerNameP.innerText = xPlayerName;
-    oPlayerNameP.innerText = oPlayerName;
+    xPlayerNameP.innerText = `X Player: ${xPlayerName}`;
+    oPlayerNameP.innerText = `O Player: ${oPlayerName}`;
 
     dialog.close();
   });
@@ -227,9 +227,7 @@ const gameboard = (function () {
     touchAndPlay(gameboardArrDom,gameboardArr);
     winStatus = false;
     playerOneTurn = true;
-    xPlayerName = "";
-    oPlayerName = "";
-    showModal();
+
   }
 
 
