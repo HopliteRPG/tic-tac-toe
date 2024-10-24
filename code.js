@@ -213,6 +213,10 @@ const gameboard = (function () {
     touchAndPlay(gameboardArrDom,gameboardArr);
     winStatus = false;
     playerOneTurn = true;
+    xPlayerName = "";
+    oPlayerName = "";
+    form.reset();
+    showModal();
   }
 
 
