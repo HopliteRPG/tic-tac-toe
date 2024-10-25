@@ -16,7 +16,7 @@ html, body {
   display: flex;
 }
 
-.playerNamesDiv>p{
+.playerNamesDiv p,.resultHTML{
   margin-left: 10px;
   margin-right: 10px;
   font-size: 30px;
