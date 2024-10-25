@@ -55,41 +55,41 @@ const gameboard = (function () {
   const checkWinCondition = function(){
     const isHorizontalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+1].icon === "X" && array[firstCell+2].icon === "X"){
-        alert(`${xPlayerName} Wins`);
+        resultHTML.innerText = `${xPlayerName} Wins`;
         winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+1].icon === "O" && array[firstCell+2].icon === "O"){
-        alert(`${oPlayerName} Wins`);
+        resultHTML.innerText = `${oPlayerName} Wins`;
         winStatus = true;
       }
     }
   
     const isVerticalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+3].icon === "X" && array[firstCell+6].icon === "X"){
-        alert(`${xPlayerName} Wins`);
+        resultHTML.innerText = `${xPlayerName} Wins`;
         winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+3].icon === "O" && array[firstCell+6].icon === "O"){
-        alert(`${oPlayerName} Wins`);
+        resultHTML.innerText = `${oPlayerName} Wins`;
         winStatus = true;
       }
     }
 
     const isDiagonalWin = function(array,firstCell){
       if(array[firstCell].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+8].icon === "X"){
-        alert(`${xPlayerName} Wins`);
+        resultHTML.innerText = `${xPlayerName} Wins`;
         winStatus = true;
       }
       else if(array[firstCell].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+8].icon === "O"){
-        alert(`${oPlayerName} Wins`);
+        resultHTML.innerText = `${oPlayerName} Wins`;
         winStatus = true;
       }
       else if(array[firstCell+2].icon === "X" && array[firstCell+4].icon === "X" && array[firstCell+6].icon === "X"){
-        alert(`${xPlayerName} Wins`);
+        resultHTML.innerText = `${xPlayerName} Wins`;
         winStatus = true;
       }
       else if(array[firstCell+2].icon === "O" && array[firstCell+4].icon === "O" && array[firstCell+6].icon === "O"){
-        alert(`${oPlayerName} Wins`);
+        resultHTML.innerText = `${oPlayerName} Wins`;
         winStatus = true;
       }
     }
@@ -102,7 +102,7 @@ const gameboard = (function () {
       }
 
       if(array.every(cellIsFilled) != "" && winStatus === false){
-        alert("Tie");
+        resultHTML.innerText = "Tie";
         winStatus = true;
       }
     }
@@ -227,8 +227,13 @@ const gameboard = (function () {
     touchAndPlay(gameboardArrDom,gameboardArr);
     winStatus = false;
     playerOneTurn = true;
+    resultHTML.innerText = "";
+  };
 
-  }
+  //Display Results
+  let resultHTML = document.createElement("p");
+  resultHTML.classList.add("resultHTML");
+  mainDom.appendChild(resultHTML);
 
 
 
